@@ -11,7 +11,7 @@ const FilterBy = () => {
   const onFilterChange = (returnCategory) =>{
     const dataToFilter = dataFromContext.products.filter((el) => el.category === returnCategory)
     if(returnCategory === "All"){
-      dataFromContext.setChosenCategories(dataFromContext.setChosenCategories)
+      dataFromContext.setChosenCategories(dataFromContext.products)
     }else{
      dataFromContext.setChosenCategories(dataToFilter)
     } 

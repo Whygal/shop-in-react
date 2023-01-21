@@ -1,18 +1,19 @@
 import "./style.css"
 import React, {useContext} from "react";
-// import data from "../Product/data";
 import Product from "../Product/Product";
 import { MyContext } from "../../MyContext";
 
-const Products = ({chosenCategories}) => {
+const Products = () => {
 const dataFromContext= useContext(MyContext)
 return(
         <section className="products">
       {dataFromContext.chosenCategories.map((p) => <Product 
       key={p.id}
+      id={p.id}
       title={p.title}
        price={p.price}
-       image={p.image}/>)}
+       image={p.image}
+       />)}
     </section>
     )
 }

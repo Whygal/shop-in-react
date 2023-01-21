@@ -294,3 +294,20 @@ label {
     align-self: flex-start;
   }
 }
+.cart{
+  display: flex;
+  height: 15rem;
+  width: auto;
+  align-content: flex-end;
+  background-color: wheat;
+}
+
+.shoppingCartImg{
+  width: 2rem;
+  height: 2rem;
+}
+
+.productsInCart{
+display: flex;
+flex-wrap: wrap;
+}
