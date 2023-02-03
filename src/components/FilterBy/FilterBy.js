@@ -1,29 +1,35 @@
 import "./style.css"
 import React from "react"
-// import data from "../Product/data"
 import { useContext } from "react"
 import { MyContext } from "../../MyContext"
+import { FormControl, MenuItem, Select, InputLabel, Box } from "@mui/material"
 
 const FilterBy = () => { 
-
   const dataFromContext = useContext(MyContext);
 
-  const onFilterChange = (returnCategory) =>{
-    const dataToFilter = dataFromContext.products.filter((el) => el.category === returnCategory)
-    if(returnCategory === "All"){
-      dataFromContext.setChosenCategories(dataFromContext.products)
-    }else{
-     dataFromContext.setChosenCategories(dataToFilter)
-    } 
+  const categories = dataFromContext.products.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index); 
+  categories.unshift('All The Products')
+  
+  const change = (e) => {
+    dataFromContext.setCategory(e.target.value)
   }
-  //  const arr = ['Featured','Best Selling','Alphabetically, A-Z',
-  //   'Alphabetically, Z-A','Price, low to high','Price, high to low',
-  //   'Date, new to old','Date, old to new']
     return(
-              <select defaultValue={'All'}  onChange={(e) => onFilterChange(e.target.value)}>
-                <option value={"All"}>All the products</option>
-                {dataFromContext.categories.map((el,index) => <option key={index} value={el}>{el}</option>)}
-              </select>            
+      <div>
+      <Box>
+      <FormControl>
+        <InputLabel id="demo-simple-select-label">Filter  By:</InputLabel>
+              <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+               value={dataFromContext.category}
+               label="Filter  By:" 
+                onChange={change}
+                >
+                {categories.map((el,index) => <MenuItem key={index} value={el}>{el}</MenuItem>)}
+              </Select>           
+    </FormControl>
+    </Box>
+    </div>
     )
   }
 

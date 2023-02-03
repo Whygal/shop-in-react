@@ -1,14 +1,37 @@
 import "./style.css"
+import * as React from 'react'
+import Box from "@mui/material/Box"
+import { Slider, Typography } from "@mui/material"
+import { useContext } from "react"
+import { MyContext } from "../../MyContext"
+
+const valueText = (value) => {
+     return  `${value}$`
+  }
 
 const SortBy = () => {
-    let selectList1 = ['All Jackets','2016','jacket',
-    'Jackets','layers','Obermeyer','Roxy','womens']
-  
+  const dataFromContext = useContext(MyContext)
+   const price = dataFromContext.price
+
     return(
-              <select>
-                {selectList1.map((el,index) => <option key={index}>{el}</option>)}
-              </select>
+    <div>
+       <Box sx={{ width: 300 }}>
+       <Typography id="input-slider" gutterBottom>
+        filter by price:
+      </Typography>
+      <Slider
+        getAriaLabel={() => 'price range'}
+        value={dataFromContext.filterByPrice}
+        onChange={dataFromContext.onPriceFilterChange}
+        valueLabelDisplay="auto"
+        getAriaValueText={valueText}
+        color='success'
+        min={Math.min(...price)}
+        max={Math.max(...price)}
+      />
+    </Box>
+    </div>
     )
-  }
+}
 
   export default SortBy

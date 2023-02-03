@@ -5,9 +5,10 @@ import { MyContext } from "../../MyContext";
 
 const Products = () => {
 const dataFromContext= useContext(MyContext)
+
 return(
         <section className="products">
-      {dataFromContext.chosenCategories.map((p) => <Product 
+      {dataFromContext.productsInCat.map((p) => <Product 
       key={p.id}
       id={p.id}
       title={p.title}

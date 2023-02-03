@@ -303,7 +303,7 @@ label {
 }
 
 .shoppingCartImg{
-  width: 2rem;
+  display: inline;
   height: 2rem;
 }
 
@@ -311,3 +311,4 @@ label {
 display: flex;
 flex-wrap: wrap;
 }
+

@@ -2,6 +2,7 @@ import "./style.css"
 import React, {useContext} from "react"
 import { MyContext } from "../../MyContext"
 import Button from '@mui/material/Button';
+import Amount from "../Amount/Amount";
 
 const ProductToCart = (p) => {
  const dataFromContext = useContext(MyContext)
@@ -32,6 +33,7 @@ const ProductToCart = (p) => {
             />
             </Button>
           </div>
+          <Amount/>
         </div>
     )
   }

@@ -6,9 +6,7 @@ import SortBy from "../SortBy/SortBy"
 const Nav = () => {
     return(
         <nav className="product-filter">    
-        <label>Filter By:</label>
-        <FilterBy></FilterBy>
-        <label>Sort By:</label>
+        <FilterBy />
         <SortBy />
       </nav>
     )
